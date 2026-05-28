@@ -2,6 +2,16 @@
 
 Jupyter notebook environment for interactive FHIR→OMOP exploration. Starts matchbox alongside a Jupyter server with `transforms.py` pre-installed so you can call `$transform` and inspect results in a notebook.
 
+Part of the [croeder-fhir-to-omop](https://github.com/croeder-fhir-to-omop) FHIR→OMOP pipeline:
+
+| Repo | Role |
+|---|---|
+| [matchbox](https://github.com/croeder-fhir-to-omop/matchbox) | FHIR server with OMOP IG (fork of ahdis/matchbox) |
+| [matchbox_docker](https://github.com/croeder-fhir-to-omop/matchbox_docker) | Docker config and IGs for matchbox |
+| [matchbox_scripts](https://github.com/croeder-fhir-to-omop/matchbox_scripts) | Transform functions, ETL script, and FHIR fixtures |
+| **[jupyter_docker](https://github.com/croeder-fhir-to-omop/jupyter_docker)** | **Interactive Jupyter notebook environment ← you are here** |
+| [dqd_docker](https://github.com/croeder-fhir-to-omop/dqd_docker) | Automated ETL + OHDSI Data Quality Dashboard |
+
 ## Contents
 
 | Path | Description |
