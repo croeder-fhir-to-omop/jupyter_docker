@@ -5,8 +5,6 @@ services:
       - "8080:8080"
     volumes:
       - matchbox-db:/database
-      - ../matchbox_docker/config:/config:ro
-      - ../matchbox_docker/igs:/igs:ro
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "curl", "-sf", "http://localhost:8080/matchboxv3/actuator/health"]
@@ -16,15 +14,11 @@ services:
       retries: 6
 
   jupyter:
-    build:
-      context: ..
-      dockerfile: jupyter_docker/Dockerfile
+    image: croeder/jupyter:latest
     ports:
       - "8888:8888"
     volumes:
       - ./notebooks:/home/jovyan/work
-      - ${HOME}/git/matchbox_scripts:/home/jovyan/matchbox_scripts
-      - ${HOME}/git/matchbox:/home/jovyan/matchbox_src:ro
     environment:
       - MATCHBOX_URL=http://matchbox:8080
     depends_on:

@@ -1,0 +1,10 @@
+# Overlay for local matchbox_scripts development.
+# Usage: docker compose -f docker-compose.yml -f docker-compose.dev.yml up
+services:
+  jupyter:
+    build:
+      context: ..
+      dockerfile: jupyter_docker/Dockerfile
+    volumes:
+      - ${HOME}/git/matchbox_scripts:/home/jovyan/matchbox_scripts
+      - ${HOME}/git/matchbox:/home/jovyan/matchbox_src:ro

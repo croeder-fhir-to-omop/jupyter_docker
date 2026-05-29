@@ -1,0 +1,9 @@
+# Build and publish the jupyter image.
+# Usage: docker compose -f docker-compose.build.yml build
+#        docker compose -f docker-compose.build.yml push
+services:
+  jupyter:
+    build:
+      context: ..
+      dockerfile: jupyter_docker/Dockerfile
+    image: croeder/jupyter:latest
