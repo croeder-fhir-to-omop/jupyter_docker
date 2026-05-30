@@ -6,4 +6,7 @@ services:
     build:
       context: ..
       dockerfile: jupyter_docker/Dockerfile
+      platforms:
+        - linux/amd64
+        - linux/arm64
     image: croeder/jupyter:latest
