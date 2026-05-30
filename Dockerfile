@@ -17,8 +17,8 @@ COPY matchbox_scripts /home/jovyan/matchbox_scripts
 ENV PYTHONPATH="/home/jovyan/matchbox_scripts:${PYTHONPATH}"
 
 # Pre-load demo notebooks into examples/ (work/ is mounted from the host at runtime)
-COPY notebooks /home/jovyan/examples
-COPY README.txt /home/jovyan/README.txt
+COPY jupyter_docker/notebooks /home/jovyan/examples
+COPY jupyter_docker/README.txt /home/jovyan/README.txt
 
 # Default matchbox endpoint — override at runtime if needed
 ENV MATCHBOX_URL="http://matchbox:8080"
