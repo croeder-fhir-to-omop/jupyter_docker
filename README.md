@@ -20,17 +20,37 @@ Part of the [croeder-fhir-to-omop](https://github.com/croeder-fhir-to-omop) FHIR
 | `docker-compose.yml` | Starts matchbox + Jupyter using published images — no repo clones required |
 | `docker-compose.dev.yml` | Overlay for `matchbox_scripts` development: rebuilds locally and mounts the scripts live |
 | `docker-compose.build.yml` | Builds and tags the image for publishing |
-| `notebooks/` | Sample notebooks (e.g. `matchbox_demo.ipynb`) |
+| `notebooks/` | Sample notebooks — mounted into `work/` at runtime and baked into `examples/` in the image |
+| `README.txt` | Orientation file placed at `/home/jovyan/README.txt` inside the container |
 
 ## Running
 
-No repo clones required. Pull and start with:
+No repo clone required. Create a working directory, pull the compose file, and start:
 
+macOS/Linux:
 ```bash
+mkdir my-fhir-work && cd my-fhir-work
+curl -O https://raw.githubusercontent.com/croeder-fhir-to-omop/jupyter_docker/main/docker-compose.yml
 docker compose up
 ```
 
-Open http://localhost:8888. The `matchbox_scripts` Python modules are available at `/home/jovyan/matchbox_scripts` inside the container.
+Windows (PowerShell):
+```powershell
+mkdir my-fhir-work; cd my-fhir-work
+curl.exe -O https://raw.githubusercontent.com/croeder-fhir-to-omop/jupyter_docker/main/docker-compose.yml
+docker compose up
+```
+
+Open http://localhost:8888. Your notebooks are saved to `./notebooks/` in that directory (created automatically on first run) and persist across container restarts.
+
+Inside Jupyter you'll find two folders:
+
+| Folder | Contents |
+|---|---|
+| `examples/` | Demo notebooks baked into the image — use as reference; changes don't persist |
+| `work/` | Your working directory — maps to `./notebooks/` on the host |
+
+The `matchbox_scripts` Python modules are available for import in any notebook.
 
 ## Developing matchbox_scripts locally
 
