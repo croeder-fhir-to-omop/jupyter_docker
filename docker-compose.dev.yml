@@ -6,5 +6,5 @@ services:
       context: ..
       dockerfile: jupyter_docker/Dockerfile
     volumes:
-      - ${HOME}/git/matchbox_scripts:/home/jovyan/matchbox_scripts
-      - ${HOME}/git/matchbox:/home/jovyan/matchbox_src:ro
+      - ../matchbox_scripts:/home/jovyan/matchbox_scripts
+      - ../matchbox:/home/jovyan/matchbox_src:ro

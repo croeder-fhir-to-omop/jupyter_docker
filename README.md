@@ -62,7 +62,7 @@ Clone `matchbox_scripts` alongside this repo, then run with the dev overlay:
 docker compose -f docker-compose.yml -f docker-compose.dev.yml up
 ```
 
-This mounts `~/git/matchbox_scripts` live into the container — edits on the host are visible immediately without rebuilding. When you're happy with changes, commit and push from the `matchbox_scripts` repo.
+This bind-mounts the sibling `matchbox_scripts` directory into the container — edits on the host are visible immediately without rebuilding. When you're happy with changes, commit and push from the `matchbox_scripts` repo.
 
 ## Adding fixtures
 
